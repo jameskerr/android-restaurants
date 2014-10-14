@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<restaurants>
+    <restaurant>
+        <name>Chipotle</name>
+        <phone>(714) 309-4434</phone>
+        <website>www.chipotle.com</website>
+        <rating>5</rating>
+        <category>Mexican</category>
+    </restaurant>
+    <restaurant>
+        <name>Green Tomato Grill</name>
+        <phone>(714) 532-1220</phone>
+        <website>greentomatogrill.com</website>
+        <rating>4</rating>
+        <category>American</category>
+    </restaurant>
+    <restaurant>
+        <name>Cortina’s Orange</name>
+        <phone>(714) 997-3663</phone>
+        <website>cortinasitalianfood.com</website>
+        <rating>5</rating>
+        <category>American</category>
+    </restaurant>
+    <restaurant>
+        <name>Bruxie</name>
+        <phone>(714) 633-3900</phone>
+        <website>bruxie.com</website>
+        <rating>3</rating>
+        <category>French</category>
+    </restaurant>
+    <restaurant>
+        <name>LinX</name>
+        <phone>(714) 744-3647</phone>
+        <website>linxdogs.com</website>
+        <rating>4</rating>
+        <category>American</category>
+    </restaurant>
+    <restaurant>
+        <name>Orange Roll Sushi</name>
+        <phone>(714) 289-9995</phone>
+        <website>loveorangesushi.com</website>
+        <rating>5</rating>
+        <category>Japanese</category>
+    </restaurant>
+    <restaurant>
+        <name>Mead’s Green Door Cafe</name>
+        <phone>(714) 771-8556</phone>
+        <website>meadsgreendoor.com</website>
+        <rating>5</rating>
+        <category>American</category>
+    </restaurant>
+    <restaurant>
+        <name>Rutabegorz</name>
+        <phone>(714) 633-3260</phone>
+        <website>rutabegorz.com</website>
+        <rating>3</rating>
+        <category>Italian</category>
+    </restaurant>
+    <restaurant>
+        <name>Tutto Fresco</name>
+        <phone>(714) 771-1555</phone>
+        <website>tuttofrescorestaurant.com</website>
+        <rating>5</rating>
+        <category>Italian</category>
+    </restaurant>
+</restaurants>

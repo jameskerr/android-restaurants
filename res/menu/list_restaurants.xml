@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.restaurants.ListRestaurants" >
+    
+    <item android:id="@+id/new_restaurant" 
+        android:titleCondensed="New" 
+        android:title="New Restaurant"
+        android:icon="@drawable/ic_new" 
+        android:showAsAction="ifRoom"/>
+    
+    <item android:id="@+id/clear_restaurants" 
+        android:titleCondensed="clear" 
+        android:title="Clear Restaurants"
+        android:icon="@drawable/ic_clear" 
+        android:showAsAction="ifRoom"/>
+    
+    <item android:id="@+id/load_restaurants" 
+        android:titleCondensed="Load" 
+        android:title="Load Restaurants"
+        android:icon="@drawable/ic_load" 
+        android:showAsAction="ifRoom"/>
+    
+    <item android:id="@+id/preferences" 
+        android:titleCondensed="Preferences" 
+        android:title="Preferences"
+        android:icon="@drawable/ic_preferences" 
+        android:showAsAction="ifRoom"/>
+</menu>
