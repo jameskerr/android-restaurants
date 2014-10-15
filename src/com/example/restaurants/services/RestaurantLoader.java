@@ -12,21 +12,17 @@ import android.content.res.AssetManager;
 
 import com.example.restaurants.models.Restaurant;
 
-public class RestaurantLoader extends Activity{
+public class RestaurantLoader {
 
-	private AssetManager asset_manager;
 	private RestaurantParser restaurant_parser;
 	
 	public RestaurantLoader() {
-		asset_manager = getAssets();
 		restaurant_parser = new RestaurantParser();
 	}
 	
-	public List load(String file_name) {
-		InputStream input_stream;
+	public List load(InputStream input_stream) {
 		List restaurants = new ArrayList<Restaurant>();
 		try {
-			input_stream = asset_manager.open(file_name);
 			 restaurants = restaurant_parser.parse(input_stream);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -35,7 +31,4 @@ public class RestaurantLoader extends Activity{
 		}
 		return restaurants;
 	}
-	
-	
-
 }

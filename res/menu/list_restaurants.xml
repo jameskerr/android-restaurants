@@ -8,16 +8,16 @@
         android:icon="@drawable/ic_new" 
         android:showAsAction="ifRoom"/>
     
-    <item android:id="@+id/clear_restaurants" 
-        android:titleCondensed="clear" 
-        android:title="Clear Restaurants"
-        android:icon="@drawable/ic_clear" 
-        android:showAsAction="ifRoom"/>
-    
     <item android:id="@+id/load_restaurants" 
         android:titleCondensed="Load" 
         android:title="Load Restaurants"
         android:icon="@drawable/ic_load" 
+        android:showAsAction="ifRoom"/>
+    
+    <item android:id="@+id/clear_restaurants" 
+        android:titleCondensed="clear" 
+        android:title="Clear Restaurants"
+        android:icon="@drawable/ic_clear" 
         android:showAsAction="ifRoom"/>
     
     <item android:id="@+id/preferences" 
