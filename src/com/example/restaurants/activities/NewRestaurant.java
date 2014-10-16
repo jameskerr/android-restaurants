@@ -1,6 +1,7 @@
 package com.example.restaurants.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,19 +37,30 @@ public class NewRestaurant extends Activity {
 		Spinner category = (Spinner) findViewById(R.id.edit_category);
 		
 		manager = (RestaurantsManager) getApplication();
-		manager.addRestaurant(new Restaurant(
+		Restaurant restaurant = new Restaurant(
 				name.getText().toString(),
 				phone.getText().toString(),
 				website.getText().toString(),
 				rating.getRating(),
 				category.getSelectedItem().toString()
-				));
+				);
 		Toast.makeText(this, "New Restaurant Added", Toast.LENGTH_SHORT).show();
 		finish();
+		
+		if (rating.getRating() == 5.0f) {
+			broadcastFiveStars(restaurant);
+		}
 	}
 	
 	public void clearForm(View view) {
 		
+	}
+	
+	public void broadcastFiveStars(Restaurant restaurant) {
+		Intent broadcast = new Intent();
+		broadcast.setAction("five_stars");
+		broadcast.putExtra("name", restaurant.name);
+		sendBroadcast(broadcast);
 	}
 	
 	public void populateCategories() {

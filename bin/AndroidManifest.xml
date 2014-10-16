@@ -34,6 +34,13 @@
             android:name="com.example.restaurants.activities.Preferences"
             android:label="@string/title_activity_preferences" >
         </activity>
+        
+        <receiver android:name="com.example.restaurants.receivers.FiveStarReceiver" >
+            <intent-filter>
+                <action android:name="five_stars" >
+                </action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

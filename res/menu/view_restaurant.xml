@@ -2,10 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.restaurants.ViewRestaurant" >
 
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+    <item android:id="@+id/new_restaurant" 
+        android:titleCondensed="New" 
+        android:title="New Restaurant"
+        android:icon="@drawable/ic_new" 
+        android:showAsAction="ifRoom"/>
+    
+    <item android:id="@+id/preferences" 
+        android:titleCondensed="Preferences" 
+        android:title="Preferences"
+        android:icon="@drawable/ic_preferences" 
+        android:showAsAction="ifRoom"/>
 
 </menu>

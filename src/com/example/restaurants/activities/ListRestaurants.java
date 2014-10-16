@@ -121,6 +121,7 @@ public class ListRestaurants extends Activity {
 		try {
 			input_stream = this.getAssets().open("restaurants.xml");
 			manager.addRestaurants(loader.load(input_stream));
+			manager.sortByRating();
 			populateRestaurantListView();
 		} catch (IOException e) {
 			Toast.makeText(this, "Failed to load restaurants.", Toast.LENGTH_SHORT).show();

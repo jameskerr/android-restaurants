@@ -3,7 +3,7 @@
     <restaurant>
         <name>Chipotle</name>
         <phone>(714) 309-4434</phone>
-        <website>www.chipotle.com</website>
+        <website>http://www.chipotle.com</website>
         <rating>5</rating>
         <category>Mexican</category>
     </restaurant>

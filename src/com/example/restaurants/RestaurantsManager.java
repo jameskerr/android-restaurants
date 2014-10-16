@@ -1,6 +1,7 @@
 package com.example.restaurants;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,8 @@ import java.util.Map;
 import android.app.Application;
 
 import com.example.restaurants.models.Restaurant;
+import com.example.restaurants.services.RestaurantSorterName;
+import com.example.restaurants.services.RestaurantSorterRating;
 
 public class RestaurantsManager extends Application {
 	
@@ -29,6 +32,17 @@ public class RestaurantsManager extends Application {
 		}
 	}
 	
+	public Restaurant findByName(String name) {
+		return RESTAURANT_MAP.get(name);
+	}
+	
+	public void sortByName() {
+		Collections.sort(RESTAURANTS, new RestaurantSorterName());
+	}
+	
+	public void sortByRating() {
+		Collections.sort(RESTAURANTS, new RestaurantSorterRating());
+	}
 	public List<Map<String,String>> convertRestaurantsToListItems() {
 		List<Map<String,String>> list_items = new ArrayList<Map<String,String>>(RESTAURANTS.size());
 		for (int i = 0; i < RESTAURANTS.size(); ++i) {
