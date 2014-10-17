@@ -57,9 +57,12 @@ public class ListRestaurants extends Activity implements OnItemSelectedListener,
 	}
 	
 	public void checkListState() {
-		if (manager.RESTAURANTS.isEmpty()) setEmptyState();
-		else setNonEmptyState();
-		adapter.notifyDataSetChanged();
+		if (manager.RESTAURANTS.isEmpty()) {
+			setEmptyState();
+		}
+		else {
+			setNonEmptyState();
+		}
 	}
 	
 	public void setEmptyState() {
@@ -156,8 +159,8 @@ public class ListRestaurants extends Activity implements OnItemSelectedListener,
 		try {
 			input_stream = this.getAssets().open("restaurants.xml");
 			manager.addRestaurants(loader.load(input_stream));
-			manager.sortByRating();
 			checkListState();
+			adapter.notifyDataSetChanged();
 		} catch (IOException e) {
 			Toast.makeText(this, "Failed to load restaurants.", Toast.LENGTH_SHORT).show();
 			e.printStackTrace();
@@ -178,6 +181,7 @@ public class ListRestaurants extends Activity implements OnItemSelectedListener,
 	public void deleteAllRestaurants() {
 		manager.RESTAURANTS.clear();
 		manager.RESTAURANT_MAP.clear();
+		adapter.notifyDataSetChanged();
 		Toast.makeText(ListRestaurants.this, "Restaurants Cleared", Toast.LENGTH_SHORT).show();
 	}
 
@@ -186,6 +190,5 @@ public class ListRestaurants extends Activity implements OnItemSelectedListener,
 		Intent show_class_intent = new Intent(ListRestaurants.this, ViewRestaurant.class);
 		show_class_intent.putExtra("name", manager.RESTAURANTS.get(position).name);
 		startActivity(show_class_intent);
-		
 	}
 }

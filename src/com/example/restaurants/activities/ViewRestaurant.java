@@ -1,5 +1,6 @@
 package com.example.restaurants.activities;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +31,8 @@ public class ViewRestaurant extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_restaurant);
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
 		
 		// Get the name from sending intent
 		Intent intent = getIntent();

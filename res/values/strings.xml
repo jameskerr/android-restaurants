@@ -8,5 +8,6 @@
     <string name="title_activity_new_restaurant">New Restaurant</string>
     <string name="title_activity_view_restaurant">View Restaurant</string>
     <string name="title_activity_preferences">Preferences</string>
+    <string name="sort_by_prompt">Sort by...</string>
 
 </resources>

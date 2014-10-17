@@ -24,7 +24,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginBottom="16dp"
         android:layout_toRightOf="@+id/sort_by_label"
-        android:contentDescription="Sort by"
+       	android:prompt="@string/sort_by_prompt"
         android:entries="@array/sort_by_options" />
     
     <ListView
