@@ -41,6 +41,7 @@ public class ViewRestaurant extends Activity {
 	
 	protected void onResume() {
 		super.onResume();
+		this.onCreate(null);
 		
 		manager = (RestaurantsManager) getApplication();
 		
@@ -59,6 +60,11 @@ public class ViewRestaurant extends Activity {
 		// Linkify stuff
 		Linkify.addLinks(show_phone, Linkify.PHONE_NUMBERS);
 		Linkify.addLinks(show_website, Linkify.WEB_URLS);
+	}
+	
+	protected void onDestroy() {
+		super.onDestroy();
+		restaurant.rating = show_rating.getRating();
 	}
 	
 	private void show(TextView view, String text) {

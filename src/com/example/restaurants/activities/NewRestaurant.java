@@ -44,7 +44,9 @@ public class NewRestaurant extends Activity {
 				rating.getRating(),
 				category.getSelectedItem().toString()
 				);
+		manager.addRestaurant(restaurant);
 		Toast.makeText(this, "New Restaurant Added", Toast.LENGTH_SHORT).show();
+		ListRestaurants.adapter.notifyDataSetChanged();
 		finish();
 		
 		if (rating.getRating() == 5.0f) {
@@ -53,7 +55,14 @@ public class NewRestaurant extends Activity {
 	}
 	
 	public void clearForm(View view) {
-		
+		EditText name = (EditText) findViewById(R.id.edit_name);
+		EditText phone = (EditText) findViewById(R.id.edit_phone);
+		EditText website = (EditText) findViewById(R.id.edit_website);
+		RatingBar rating = (RatingBar) findViewById(R.id.edit_rating);
+		name.setText("");
+		phone.setText("");
+		website.setText("");
+		rating.setRating(0.0f);
 	}
 	
 	public void broadcastFiveStars(Restaurant restaurant) {

@@ -8,92 +8,120 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.restaurants.activities.NewRestaurant" >
 
-    <TextView
-        android:id="@+id/text_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/new_name_row"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:paddingTop="14dp"
-        android:text="Name:"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:weightSum="4" >
 
-    <EditText
-        android:id="@+id/edit_name"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Name:"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_weight="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/new_phone_row"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/text_name"
-        android:layout_alignLeft="@+id/edit_phone"
-        android:layout_alignParentRight="true"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/text_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/edit_name"
-        android:paddingTop="14dp"
-        android:text="Phone:"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/edit_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/text_phone"
-        android:layout_alignLeft="@+id/edit_website"
-        android:layout_alignParentRight="true"
-        android:ems="10" />
-
-    <TextView
-        android:id="@+id/text_website"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/text_phone"
-        android:paddingTop="14dp"
-        android:text="Website:"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_below="@+id/new_name_row"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:weightSum="4" >
+        
+	    <TextView
+	        android:id="@+id/text_phone"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="Phone:"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	    <EditText
+	        android:id="@+id/edit_phone"
+	        android:layout_weight="3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:ems="10" />
+    </LinearLayout>
     
-    <EditText
-        android:id="@+id/edit_website"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/new_website_row"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignBottom="@+id/text_website"
-        android:ems="10" />
+        android:layout_below="@+id/new_phone_row"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:weightSum="4" >
+	    
+	    <TextView
+	        android:id="@+id/text_website"
+	        android:layout_weight="1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Website:"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	    <EditText
+	        android:id="@+id/edit_website"
+	        android:layout_weight="3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBottom="@+id/text_website"
+	        android:layout_alignParentRight="true"
+	        android:ems="10" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/new_category_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/new_website_row"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:weightSum="4" >
+    	
+        <TextView
+	        android:id="@+id/text_category"
+	        android:layout_weight="1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Category:"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+	    <Spinner
+	        android:id="@+id/edit_category"
+	        android:layout_weight="3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" />
+	</LinearLayout>
 
     <RatingBar
         android:id="@+id/edit_rating"
-        style="@id/edit_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_website"
+        android:layout_below="@+id/new_category_row"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp"
-        android:minHeight="57dp"
-        android:scrollbarAlwaysDrawVerticalTrack="false" />
-
-	<Spinner
-        android:id="@+id/edit_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/edit_website"
-        android:layout_below="@+id/edit_rating"
-        android:layout_marginTop="17dp" />
+        android:layout_marginTop="20dp" />
 
     <Button
         android:id="@+id/save"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/category_spinner"
-        android:layout_alignRight="@+id/category_spinner"
-        android:layout_below="@+id/category_spinner"
-        android:layout_marginTop="44dp"
+        android:layout_alignParentBottom="true"
         android:onClick="saveRestaurant"
         android:text="Save" />
 
@@ -102,8 +130,8 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/save"
-        android:layout_below="@+id/save"
+        android:layout_alignParentLeft="true"
+        android:layout_above="@+id/save"
         android:onClick="clearForm"
         android:text="Clear" />
 

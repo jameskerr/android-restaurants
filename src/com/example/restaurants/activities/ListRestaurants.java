@@ -13,51 +13,65 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.restaurants.R;
 import com.example.restaurants.RestaurantsManager;
+import com.example.restaurants.adapters.RestaurantListAdapter;
 import com.example.restaurants.models.Restaurant;
 import com.example.restaurants.services.RestaurantLoader;
 
-public class ListRestaurants extends Activity {
+public class ListRestaurants extends Activity implements OnItemSelectedListener, OnItemClickListener {
 	
 	RestaurantsManager manager;
-		
+	Spinner sort_by;
+	TextView sort_by_label;
+	TextView no_restaurants;
+	ListView restaurant_list;
+	static public RestaurantListAdapter adapter;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_list_restaurants);
-
 		manager = (RestaurantsManager) getApplication();
+		sort_by = (Spinner) findViewById(R.id.sort_by);
+		sort_by_label = (TextView) findViewById(R.id.sort_by_label);
+		no_restaurants = (TextView) findViewById(R.id.no_restaurants);
+		sort_by.setOnItemSelectedListener(this);
+		restaurant_list = (ListView) findViewById(R.id.restaurant_list);
+		adapter = new RestaurantListAdapter(this, ((ArrayList<Restaurant>) manager.RESTAURANTS));	
+		restaurant_list.setAdapter(adapter);
+		restaurant_list.setOnItemClickListener(this);
+		adapter.notifyDataSetChanged();
 	}
 	
 	protected void onResume() {
 		super.onResume();
-		populateRestaurantListView();
+		checkListState();
 	}
 	
-	public void populateRestaurantListView() {
-		ListView restaurant_list_view = (ListView) findViewById(R.id.restaurant_list_view);
-		SimpleAdapter restaurant_list_adapter = new SimpleAdapter(this,
-																  manager.convertRestaurantsToListItems(),
-																  android.R.layout.simple_expandable_list_item_2,
-																  new String[] {"name", "rating"},
-																  new int [] {android.R.id.text1, android.R.id.text2});
-		restaurant_list_view.setAdapter(restaurant_list_adapter);
-		
-		restaurant_list_view.setOnItemClickListener(new OnItemClickListener(){
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {		
-				Intent show_class_intent = new Intent(ListRestaurants.this, ViewRestaurant.class);
-				show_class_intent.putExtra("name", manager.RESTAURANTS.get(position).name);
-				startActivity(show_class_intent);
-			}
-		});
+	public void checkListState() {
+		if (manager.RESTAURANTS.isEmpty()) setEmptyState();
+		else setNonEmptyState();
+		adapter.notifyDataSetChanged();
+	}
+	
+	public void setEmptyState() {
+		no_restaurants.setVisibility(View.VISIBLE);
+		sort_by.setVisibility(View.INVISIBLE);
+		sort_by_label.setVisibility(View.INVISIBLE);
+	}
+	
+	public void setNonEmptyState() {
+		no_restaurants.setVisibility(View.INVISIBLE);
+		sort_by.setVisibility(View.VISIBLE);
+		sort_by_label.setVisibility(View.VISIBLE);
 	}
 	
 	@Override
@@ -92,6 +106,24 @@ public class ListRestaurants extends Activity {
 	}
 	
 	
+	public void onItemSelected(AdapterView<?> parent, View view, 
+            int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        String selection = (String) parent.getItemAtPosition(pos);
+        if (selection.equals("Name")) {
+        	manager.sortByName();
+        	adapter.notifyDataSetChanged();
+        } else if (selection.equals("Rating")) {
+        	manager.sortByRating();
+        	adapter.notifyDataSetChanged();
+        }
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+       
+    }
+	
+	
 	/**
 	 * Navigation Helpers
 	 */
@@ -109,9 +141,12 @@ public class ListRestaurants extends Activity {
 			.setPositiveButton("Yes, do it NAOUW!", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 					deleteAllRestaurants();
+					adapter.notifyDataSetChanged();
+					setEmptyState();
 				}
 			})
 			.show();
+		
 	}
 	
 	public void onLoadRestaurantsSelected() {
@@ -122,7 +157,7 @@ public class ListRestaurants extends Activity {
 			input_stream = this.getAssets().open("restaurants.xml");
 			manager.addRestaurants(loader.load(input_stream));
 			manager.sortByRating();
-			populateRestaurantListView();
+			checkListState();
 		} catch (IOException e) {
 			Toast.makeText(this, "Failed to load restaurants.", Toast.LENGTH_SHORT).show();
 			e.printStackTrace();
@@ -143,7 +178,14 @@ public class ListRestaurants extends Activity {
 	public void deleteAllRestaurants() {
 		manager.RESTAURANTS.clear();
 		manager.RESTAURANT_MAP.clear();
-		populateRestaurantListView();
 		Toast.makeText(ListRestaurants.this, "Restaurants Cleared", Toast.LENGTH_SHORT).show();
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		Intent show_class_intent = new Intent(ListRestaurants.this, ViewRestaurant.class);
+		show_class_intent.putExtra("name", manager.RESTAURANTS.get(position).name);
+		startActivity(show_class_intent);
+		
 	}
 }

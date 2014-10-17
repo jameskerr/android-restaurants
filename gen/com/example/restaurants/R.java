@@ -10,6 +10,7 @@ package com.example.restaurants;
 public final class R {
     public static final class array {
         public static final int categories_array=0x7f060000;
+        public static final int sort_by_options=0x7f060001;
     }
     public static final class attr {
     }
@@ -30,48 +31,60 @@ public final class R {
         public static final int ic_load=0x7f020002;
         public static final int ic_new=0x7f020003;
         public static final int ic_preferences=0x7f020004;
+        public static final int restaurant_logo=0x7f020005;
     }
     public static final class id {
-        public static final int TextView02=0x7f0a0017;
-        public static final int TextView03=0x7f0a001b;
-        public static final int TextView04=0x7f0a0015;
-        public static final int action_settings=0x7f0a0021;
-        public static final int category_spinner=0x7f0a000a;
-        public static final int clear=0x7f0a000b;
-        public static final int clear_restaurants=0x7f0a001f;
-        public static final int edit_category=0x7f0a0008;
-        public static final int edit_name=0x7f0a0002;
-        public static final int edit_phone=0x7f0a0003;
-        public static final int edit_rating=0x7f0a0007;
-        public static final int edit_website=0x7f0a0005;
-        public static final int load_restaurants=0x7f0a001e;
-        public static final int new_restaurant=0x7f0a001d;
-        public static final int preferences=0x7f0a0020;
-        public static final int restaurant_list_view=0x7f0a0000;
-        public static final int save=0x7f0a0009;
-        public static final int save_preferences=0x7f0a000f;
-        public static final int show_category=0x7f0a001c;
-        public static final int show_category_row=0x7f0a0019;
-        public static final int show_name=0x7f0a0012;
-        public static final int show_name_row=0x7f0a0010;
-        public static final int show_phone=0x7f0a0018;
-        public static final int show_phone_row=0x7f0a0014;
-        public static final int show_rating=0x7f0a001a;
-        public static final int show_website=0x7f0a0016;
-        public static final int show_website_row=0x7f0a0013;
-        public static final int textView1=0x7f0a0011;
-        public static final int text_name=0x7f0a0001;
-        public static final int text_phone=0x7f0a0004;
-        public static final int text_website=0x7f0a0006;
-        public static final int view_category=0x7f0a000e;
-        public static final int view_phone=0x7f0a000c;
-        public static final int view_website=0x7f0a000d;
+        public static final int TextView02=0x7f0a001e;
+        public static final int TextView03=0x7f0a0022;
+        public static final int TextView04=0x7f0a001c;
+        public static final int action_settings=0x7f0a002b;
+        public static final int clear=0x7f0a0013;
+        public static final int clear_restaurants=0x7f0a0029;
+        public static final int edit_category=0x7f0a0010;
+        public static final int edit_name=0x7f0a0007;
+        public static final int edit_phone=0x7f0a000a;
+        public static final int edit_rating=0x7f0a0011;
+        public static final int edit_website=0x7f0a000d;
+        public static final int list=0x7f0a0004;
+        public static final int list_restaurant_logo=0x7f0a0024;
+        public static final int list_restaurant_name=0x7f0a0026;
+        public static final int list_restaurant_rating=0x7f0a0025;
+        public static final int load_restaurants=0x7f0a0028;
+        public static final int new_category_row=0x7f0a000e;
+        public static final int new_name_row=0x7f0a0005;
+        public static final int new_phone_row=0x7f0a0008;
+        public static final int new_restaurant=0x7f0a0027;
+        public static final int new_website_row=0x7f0a000b;
+        public static final int no_restaurants=0x7f0a0003;
+        public static final int preferences=0x7f0a002a;
+        public static final int restaurant_list=0x7f0a0002;
+        public static final int save=0x7f0a0012;
+        public static final int save_preferences=0x7f0a0017;
+        public static final int show_category=0x7f0a0023;
+        public static final int show_category_row=0x7f0a0020;
+        public static final int show_name=0x7f0a0019;
+        public static final int show_name_row=0x7f0a0018;
+        public static final int show_phone=0x7f0a001f;
+        public static final int show_phone_row=0x7f0a001b;
+        public static final int show_rating=0x7f0a0021;
+        public static final int show_website=0x7f0a001d;
+        public static final int show_website_row=0x7f0a001a;
+        public static final int sort_by=0x7f0a0001;
+        public static final int sort_by_label=0x7f0a0000;
+        public static final int text_category=0x7f0a000f;
+        public static final int text_name=0x7f0a0006;
+        public static final int text_phone=0x7f0a0009;
+        public static final int text_website=0x7f0a000c;
+        public static final int view_category=0x7f0a0016;
+        public static final int view_phone=0x7f0a0014;
+        public static final int view_website=0x7f0a0015;
     }
     public static final class layout {
         public static final int activity_list_restaurants=0x7f030000;
         public static final int activity_new_restaurant=0x7f030001;
         public static final int activity_preferences=0x7f030002;
         public static final int activity_view_restaurant=0x7f030003;
+        public static final int restaurat_list_item=0x7f030004;
     }
     public static final class menu {
         public static final int list_restaurants=0x7f090000;
